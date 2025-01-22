@@ -13,5 +13,11 @@ describe('Rover Tests', () => {
         rover2.executeCommands('MMRMMRMRRM');
         expect(rover2.getPosition()).toBe('5 1 E');
     });
+    test('should ignore invalid commands and process only valid ones', () => {
+        const rover = new Rover(2, 2, 'E', plateau);
+        rover.executeCommands('MXYZM');
+        expect(rover.getPosition()).toBe('4 2 E');
+    });    
+    
 });
 
